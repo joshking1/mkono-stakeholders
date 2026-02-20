@@ -1,0 +1,14 @@
+sudo apt install certbot python3-certbot-nginx -y
+sudo certbot --nginx -d mkono-roadmap.duckdns.org
+```
+
+**During the setup, it will ask you:**
+1. **Email address** - Enter your email
+2. **Terms of Service** - Type `Y` to agree
+3. **Share email with EFF** - Type `N` (or `Y` if you want)
+
+**That's it!**
+
+Once it completes, your site will automatically redirect to HTTPS:
+```
+https://mkono-roadmap.duckdns.org
