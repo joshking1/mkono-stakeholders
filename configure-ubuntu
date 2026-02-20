@@ -1,0 +1,44 @@
+# Step 1: SSH into EC2
+
+ssh -i /path/to/your-key.pem ubuntu@your-ec2-public-ip
+
+# Step 2: Install Nginx and Git
+
+sudo apt update
+sudo apt install nginx git -y
+sudo systemctl start nginx
+sudo systemctl enable nginx
+
+# Step 3: Clone the repo
+cd /home/ubuntu
+git clone https://github.com/joshking1/mkono-stakeholders.git
+
+# Step 4: Deploy the HTML file
+
+sudo cp mkono-stakeholders/mkono-20m-exit-plan.html /var/www/html/
+sudo chmod 644 /var/www/html/mkono-20m-exit-plan.html
+
+sudo cp mkono-stakeholders/mkono-20m-exit-plan.html /var/www/html/
+sudo chmod 644 /var/www/html/mkono-20m-exit-plan.html
+sudo cp /var/www/html/mkono-20m-exit-plan.html /var/www/html/index.html
+```
+
+Then open your browser and go to:
+```
+http://your-ec2-public-ip
+
+#Add https 
+sudo apt install certbot python3-certbot-nginx -y
+sudo certbot --nginx -d mkono-roadmap.duckdns.org
+```
+
+**During the setup, it will ask you:**
+1. **Email address** - Enter your email
+2. **Terms of Service** - Type `Y` to agree
+3. **Share email with EFF** - Type `N` (or `Y` if you want)
+
+**That's it!**
+
+Once it completes, your site will automatically redirect to HTTPS:
+```
+https://mkono-roadmap.duckdns.org
